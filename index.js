@@ -1,19 +1,9 @@
-var through = require("through-stream")
-    , reemit = require("re-emitter").reemit
+var proxy = require("proxy-stream")
 
 module.exports = reduce
 
 function reduce(stream, iterator, initial) {
-    var reduced = through(write, read, stream.end)
-
-    reemit(stream, reduced, ["readable", "drain", "end"])
-
-    reduced.writable = stream.writable
-    reduced.readable = stream.readable
-
-    reduced.pipe = pipe
-
-    return reduced
+    return proxy(stream, write, read, stream.end, [pipeWrite])
 
     function write(chunk) {
         return stream.write(reduction(chunk))
@@ -24,14 +14,7 @@ function reduce(stream, iterator, initial) {
         return chunk === null ? null : reduction(chunk)
     }
 
-    function pipe(target) {
-        var reducer = through(writeChunk)
-        reducer.pipe(target)
-        stream.pipe(reducer)
-        return target
-    }
-
-    function writeChunk(chunk, buffer) {
+    function pipeWrite(chunk, buffer) {
         buffer.push(reduction(chunk))
     }
 

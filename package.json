@@ -18,10 +18,11 @@
   },
   "dependencies": {
     "through-stream": "0.0.1",
-    "re-emitter": "~0.2.0"
+    "re-emitter": "~0.2.0",
+    "proxy-stream": "~0.1.0"
   },
   "devDependencies": {
-    "read-stream": "~0.1.0",
+    "read-stream": "~0.2.0",
     "write-stream": "~0.1.0"
   },
   "licenses": [
