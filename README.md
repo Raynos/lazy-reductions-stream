@@ -7,12 +7,12 @@ Wrap a stream with a reduction
 ```
 var from = require("read-stream")
     , to = require("write-stream")
-    , reduce = require("lazy-reduce-stream")
+    , reductions = require("lazy-reduce-stream")
     , assert = require("assert")
     , list = []
 
 // reduce(stream, iterator, initialValue)
-var sums = reduce(from([1,2,3,4,5]), function (acc, value) {
+var sums = reductions(from([1,2,3,4,5]), function (acc, value) {
     return acc + value
 }, 0)
 
@@ -23,7 +23,7 @@ sums.pipe(to(list, function () {
 }))
 ```
 
-reduce takes a stream as the first arguments and reduces a new readable / writable stream that applies the reduction transformation to all reads / writes.
+reductions takes a stream as the first arguments and reduces a new readable / writable stream that applies the reduction transformation to all reads / writes.
 
 The pipe method of the returned stream is overwritten to pipe the underlying stream through a reducing through stream
 

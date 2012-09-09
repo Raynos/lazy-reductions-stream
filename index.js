@@ -1,8 +1,8 @@
 var proxy = require("proxy-stream")
 
-module.exports = reduce
+module.exports = reductions
 
-function reduce(stream, iterator, initial) {
+function reductions(stream, iterator, initial) {
     return proxy(stream, write, read, stream.end, [pipeWrite])
 
     function write(chunk) {
