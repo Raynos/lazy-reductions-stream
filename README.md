@@ -12,15 +12,20 @@ var from = require("read-stream")
     , list = []
 
 // reduce(stream, iterator, initialValue)
-var sums = reduce(from([0,1,2,3,4,5]), function (acc, value) {
+var sums = reduce(from([1,2,3,4,5]), function (acc, value) {
     return acc + value
 }, 0)
 
 sums.pipe(to(list, function () {
-    /* the summed states */
-    assert.deepEqual(list, [0, 1, 3, 7, 12])
+    // the summed states
+    assert.deepEqual(list, [1, 3, 6, 10, 15])
+    console.log("list", list)
 }))
 ```
+
+reduce takes a stream as the first arguments and reduces a new readable / writable stream that applies the reduction transformation to all reads / writes.
+
+The pipe method of the returned stream is overwritten to pipe the underlying stream through a reducing through stream
 
 ## Installation
 
