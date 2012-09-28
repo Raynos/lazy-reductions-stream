@@ -1,22 +1,21 @@
-# lazy-reduce-stream
+# lazy-reductions-stream
 
 Wrap a stream with a reduction
 
 ## Example
 
 ```
-var from = require("read-stream")
-    , to = require("write-stream")
-    , reductions = require("lazy-reduce-stream")
+var from = require("read-stream").fromArray
+    , to = require("write-stream").toArray
+    , reductions = require("lazy-reductions-stream")
     , assert = require("assert")
-    , list = []
 
 // reduce(stream, iterator, initialValue)
 var sums = reductions(from([1,2,3,4,5]), function (acc, value) {
     return acc + value
 }, 0)
 
-sums.pipe(to(list, function () {
+sums.pipe(to([], function (list) {
     // the summed states
     assert.deepEqual(list, [1, 3, 6, 10, 15])
     console.log("list", list)
@@ -29,7 +28,7 @@ The pipe method of the returned stream is overwritten to pipe the underlying str
 
 ## Installation
 
-`npm install lazy-reduce-stream`
+`npm install lazy-reductions-stream`
 
 ## Contributors
 

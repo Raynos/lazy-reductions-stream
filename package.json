@@ -1,34 +1,32 @@
 {
-  "name": "lazy-reduce-stream",
-  "version": "0.1.0",
+  "name": "lazy-reductions-stream",
+  "version": "0.1.1",
   "description": "Wrap a stream with a reduction",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
-  "repository": "git://github.com/Raynos/lazy-reduce-stream.git",
+  "repository": "git://github.com/Raynos/lazy-reductions-stream.git",
   "main": "index",
-  "homepage": "https://github.com/Raynos/lazy-reduce-stream",
+  "homepage": "https://github.com/Raynos/lazy-reductions-stream",
   "contributors": [
     {
       "name": "Jake Verbaten"
     }
   ],
   "bugs": {
-    "url": "https://github.com/Raynos/lazy-reduce-stream/issues",
+    "url": "https://github.com/Raynos/lazy-reductions-stream/issues",
     "email": "raynos2@gmail.com"
   },
   "dependencies": {
-    "through-stream": "~0.0.2",
-    "re-emitter": "~0.2.0",
-    "proxy-stream": "~0.1.1"
+    "proxy-stream": "~0.2.0"
   },
   "devDependencies": {
-    "read-stream": "~0.2.0",
-    "write-stream": "~0.1.0"
+    "read-stream": "~0.4.0",
+    "write-stream": "~0.4.0"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/Raynos/lazy-reduce-stream/raw/master/LICENSE"
+      "url": "http://github.com/Raynos/lazy-reductions-stream/raw/master/LICENSE"
     }
   ],
   "scripts": {}
